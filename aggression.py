@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 cvd1 = pd.read_csv('1.csv',encoding = 'ISO-8859-1')
 cvd2 = pd.read_csv('2.csv')
 cp2=cvd2.copy()
