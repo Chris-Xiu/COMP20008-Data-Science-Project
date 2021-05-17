@@ -1,4 +1,4 @@
-LGA code,Local Government Area,population2016,population2017,Area(km2),population density(persons/km2)
+lga_code,Local Government Area,population2016,population2017,Area(km2),population density(persons/km2)
 20110,Alpine (S),12450,12515,4788.2,2.6
 20260,Ararat (RC),11707,11723,4211.1,2.8
 20570,Ballarat (C),103407,105328,739,142.5

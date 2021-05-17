@@ -22,9 +22,9 @@ for i in range(len(area_code)):
         area_code[i] = None
 
 #Print the area names that does not have a corresponding code
-for i in range(len(area_code)):
-    if area_code[i] == None:
-        print(LGA_SPORT_FACILITY['lga'].to_list()[i])
+# for i in range(len(area_code)):
+#     if area_code[i] == None:
+#         print(LGA_SPORT_FACILITY['lga'].to_list()[i])
 
 #Add the area codes and clean the sport facility dataframe
 LGA_SPORT_FACILITY['lga_code'] = area_code
@@ -37,9 +37,23 @@ FACILITY_COUNT_PER_LGA = LGA_SPORT_FACILITY.groupby('lga_code', as_index=False).
 
 #Join the sport facility dataframe and health risk dataframe together by lga
 JOINED = FACILITY_COUNT_PER_LGA.set_index('lga_code').join(LGA_HEALTH_RISK.set_index('lga_code'), on='lga_code', how='left', sort=False)
-print(JOINED)
+# print(JOINED)
 
 plot1 = JOINED.plot.scatter(x='lga', y='lw_excse_4_asr_uci', c='Blue')
 plot2 = JOINED.plot.scatter(x='lga', y='hbld_pres_2_asr', c='Red')
 plot3 = JOINED.plot.scatter(x='lga', y='ovrwgt_p_2_asr', c='Orange')
 plot4 = JOINED.plot.scatter(x='lga', y='obese_p_2_asr', c='Green')
+
+#Read region population csv
+region_population = pd.read_csv('Data/regional_population_csv.csv')
+
+#Join region_population dataframe and JOINED together by lga code
+JOINED_2 = JOINED.join(region_population.set_index('lga_code'), on='lga_code', how='left', sort=False)
+JOINED_2['num_facility_per_capita(2016)']=JOINED_2['lga']/JOINED_2['population2016']
+JOINED_2['num_facility_per_capita(2017)']=JOINED_2['lga']/JOINED_2['population2017']
+JOINED_2['num_facility_per_km2']=JOINED_2['lga']/JOINED_2['Area(km2)']
+
+plot5 = JOINED_2.plot.scatter(x='num_facility_per_capita(2017)', y='lw_excse_4_asr_uci', c='Blue')
+plot6 = JOINED_2.plot.scatter(x='num_facility_per_capita(2017)', y='hbld_pres_2_asr', c='Red')
+plot7 = JOINED_2.plot.scatter(x='num_facility_per_capita(2017)', y='ovrwgt_p_2_asr', c='Orange')
+plot8 = JOINED_2.plot.scatter(x='num_facility_per_capita(2017)', y='obese_p_2_asr', c='Green')
