@@ -21,3 +21,5 @@ Data Origin:
 - Victoria_Sport_and_Recreation_Facility_Location.csv: https://data.aurin.org.au/dataset/vic-govt-dhhs-vic-sport-and-recreation-2015-na
 - LGA_2016_VIC.csv: https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.003July%202016?OpenDocument
 - Regional Population LGA Vic.xlsx: https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/3218.02016?OpenDocument
+
+All the code used to building the models and plot the graphs in the report are stored within file named "one_for_all", which are in both python and jupyter notebook format.
