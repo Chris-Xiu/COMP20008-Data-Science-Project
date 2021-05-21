@@ -5,6 +5,10 @@ Team Members:
 - Yuntong Jiang (940590)
 - Chris Xiu (1154943)
 
+We didn't realize we need to follow the link to create the repository under the class "COMP20008", so instead we created our own private one. Here are the links for both repositories as the pirvate one contains all of our commit histories. (The contents in both repositories are the same)
+- Private github reposotpry: https://github.com/Chris-Xiu/COMP20008A2
+- Class assigned github repository: https://github.com/COMP20008/assignment-2-group-106
+
 Package required to run the code:
 - pandas
 - re
