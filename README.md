@@ -1,9 +1,9 @@
 # Assignment 2: COMP20008 Data Science Project Group 106
 Team Members:
-Long Chen (1077055)
-Mian Chen (941099)
-Yuntong Jiang (940590)
-Chris Xiu (1154943)
+- Long Chen (1077055)
+- Mian Chen (941099)
+- Yuntong Jiang (940590)
+- Chris Xiu (1154943)
 
 Package required to run the code:
 - pandas
