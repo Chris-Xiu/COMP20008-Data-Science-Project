@@ -6,8 +6,9 @@ import re
 import matplotlib.pyplot as plt
 import descartes
 import geopandas as gpd
-from shapely.geometry import Point, Polygon
 import numpy as np
+import scipy.stats
+from shapely.geometry import Point, Polygon
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn import preprocessing
@@ -241,6 +242,14 @@ plt.ylabel("High_blood_pressure_percentage(%)")
 plt.xlabel("Num_facility_per_km2(unite/km2)")
 plt.title("Num facility per km2 vs High blood pressure percentage")
 plt.show()
+# F-Test
+mse = mean_squared_error(y, y_predictions)
+msr = sum((y_predictions-y.mean())*(y_predictions-y.mean()))/1
+F = msr/mse
+df1 = 1
+df2 = JOINED_2.shape[0]-2 
+p_value = 1 - scipy.stats.f.cdf(F, df1, df2)
+print(p_value)
 
 X = JOINED_2[['num_facility_per_km2']]
 y = JOINED_2['psych_dstrs_2_asr']
